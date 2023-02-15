@@ -1,0 +1,36 @@
+{% extends 'front.html.twig' %}
+
+{% block title %}Offre index{% endblock %}
+
+{% block body %}
+<h1 class="mb-4" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Nos offres d'emploi</h1>
+    
+    <tbody>
+        {% for offre in offres %}
+        <tr>
+            
+           <td> 
+           <h1 class="text-primary data-scrollax="properties: { translateY: '30%', opacity: 1.6 "><i class="fa fa-hashtag me-2"></i>OFF<span>RE :</h1>
+          <p class="mb-4"><i class="fa fa-hashtag me-2">IdOffre:{{ offre.idOffre }}</h2>
+           <p class="mb-4">NomOffre:{{ offre.nomOffre }}</h2>
+            <p class="mb-4">DatepubOffre:{{ offre.datepubOffre ? offre.datepubOffre|date('Y-m-d') : '' }}</h2>
+                </td>
+                {#<td>
+                    <a href="{{ path('app_offre_show', {'idOffre': offre.idOffre}) }}">show</a>
+                    <a href="{{ path('app_offre_edit', {'idOffre': offre.idOffre}) }}">edit</a>
+                </td>#}
+            
+        </tr>
+        {% else %}
+    
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <p><a href="{{ path('app_demande_new') }}" class="btn btn-primary px-4 py-3">Postuler </a></p>
+{% endblock %}
+
+

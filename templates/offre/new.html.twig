@@ -1,0 +1,14 @@
+{% extends 'back.html.twig' %}
+
+{% block title %}New Offre{% endblock %}
+
+{% block body %}
+<div class="container-fluid pt-4 px-4">
+
+    <h1>Create new Offre</h1>
+{{ form_start(form,{'attr': {'novalidate': 'novalidate'}} ) }}
+    {{ include('offre/_form.html.twig') }}
+<p><a href="{{ path('app_offre_index') }}" class="btn">back to list </a></p>
+   
+    </div>
+{% endblock %}
