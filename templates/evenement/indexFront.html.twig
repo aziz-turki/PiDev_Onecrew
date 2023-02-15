@@ -1,0 +1,34 @@
+{% extends 'layoutFrontOffice.html.twig' %}
+
+{% block title %}Liste Evenement{% endblock %}
+
+{% block body %}
+    <h1>Liste Evenement</h1>
+
+        <br>
+        <tr>
+        {% for evenement in evenements %}
+            <ul>
+            <ul>
+                <h2>
+                <img src= {{asset('uploades/' ~ evenement.imageEvenement)}} width="180x" />
+                </h2>
+                <h2>{{ evenement.typeEvenement }}</h2>
+                <h2>{{ evenement.nomEvenement }}</h2>
+                <h2>{{ evenement.lieuEvenement }}</h2>
+                <h2>{{ evenement.dateDebut ? evenement.dateDebut|date('Y-m-d') : '' }}</h2>
+                <h2>{{ evenement.dateFin ? evenement.dateFin|date('Y-m-d') : '' }}</h2>
+                <h2>
+                
+    <a href="{{ path('app_participation_new') }}">Participer</a>
+                </h2>
+            </ul>
+            </ul>
+        {% else %}
+            <h2>
+                <td colspan="8">no records found</td>
+            </h2>
+        {% endfor %}
+        </tr>
+
+{% endblock %}
